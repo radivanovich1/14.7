@@ -75,6 +75,11 @@ class TodoViewController: UIViewController {
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.note
             }
+            else if index == 0 && Todo.shared.read().count > 0 {
+                let arr:[Note] = Todo.shared.read()
+                curretNote = arr[index]
+                noteTextView.text = curretNote?.note
+            }
             else{
                 noteTextView.text = ""
                 curretNote = nil

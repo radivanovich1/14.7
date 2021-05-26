@@ -81,6 +81,11 @@ class TodoCoreViewController: UIViewController {
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.noteCore
             }
+            else if index == 0 && Todo.shared.readCore(context: context!).count > 0 {
+                let arr:[NoteCore] = Todo.shared.readCore(context: context!)
+                curretNote = arr[index]
+                noteTextView.text = curretNote?.noteCore
+            }
             else{
                 noteTextView.text = ""
                 curretNote = nil
