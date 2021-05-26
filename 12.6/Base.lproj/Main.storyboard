@@ -273,7 +273,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i9n-kL-uhq">
                                 <rect key="frame" x="45.5" y="247" width="284" height="173"/>
                                 <color key="backgroundColor" systemColor="systemFillColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -306,21 +305,32 @@
                                     <action selector="remove:" destination="pu5-8X-8EE" eventType="touchUpInside" id="bzN-oK-MJz"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RDO-30-7kq">
+                                <rect key="frame" x="54" y="145" width="267" height="79"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YjW-3t-b6S"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="z5d-gp-9DC" firstAttribute="top" secondItem="i9n-kL-uhq" secondAttribute="bottom" constant="20" id="2tq-Rv-ctL"/>
+                            <constraint firstItem="i9n-kL-uhq" firstAttribute="top" secondItem="RDO-30-7kq" secondAttribute="bottom" constant="23" id="5T3-r9-2jt"/>
                             <constraint firstItem="64Z-D0-fEX" firstAttribute="top" secondItem="i9n-kL-uhq" secondAttribute="bottom" constant="20" id="9H1-hi-Fav"/>
                             <constraint firstItem="i9n-kL-uhq" firstAttribute="centerY" secondItem="Jsp-fy-2Oz" secondAttribute="centerY" id="9Il-ag-UBk"/>
                             <constraint firstItem="64Z-D0-fEX" firstAttribute="leading" secondItem="YjW-3t-b6S" secondAttribute="leading" constant="99.666666666666671" id="9q8-ka-Dft"/>
                             <constraint firstItem="YjW-3t-b6S" firstAttribute="trailing" secondItem="z5d-gp-9DC" secondAttribute="trailing" constant="98.333333333333371" id="A5F-bg-f3J"/>
                             <constraint firstItem="z5d-gp-9DC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JC7-Xb-oeq" secondAttribute="trailing" constant="8" symbolic="YES" id="EoJ-m5-ePz"/>
+                            <constraint firstItem="RDO-30-7kq" firstAttribute="centerX" secondItem="Jsp-fy-2Oz" secondAttribute="centerX" id="Ipt-7t-ThK"/>
                             <constraint firstItem="i9n-kL-uhq" firstAttribute="height" secondItem="Jsp-fy-2Oz" secondAttribute="height" multiplier="0.259852" id="KI5-c5-PdF"/>
                             <constraint firstItem="JC7-Xb-oeq" firstAttribute="centerX" secondItem="Jsp-fy-2Oz" secondAttribute="centerX" id="MF3-HK-UE8"/>
                             <constraint firstItem="JC7-Xb-oeq" firstAttribute="top" secondItem="i9n-kL-uhq" secondAttribute="bottom" constant="20" id="QqN-2L-tOC"/>
                             <constraint firstItem="NXN-Sm-4mO" firstAttribute="top" secondItem="JC7-Xb-oeq" secondAttribute="bottom" constant="15" id="ZOi-BP-eXB"/>
+                            <constraint firstItem="RDO-30-7kq" firstAttribute="width" secondItem="Jsp-fy-2Oz" secondAttribute="width" multiplier="0.712" id="bxW-Cy-Aq4"/>
                             <constraint firstItem="i9n-kL-uhq" firstAttribute="width" secondItem="Jsp-fy-2Oz" secondAttribute="width" multiplier="0.757333" id="d20-aF-ECW"/>
+                            <constraint firstItem="RDO-30-7kq" firstAttribute="height" secondItem="Jsp-fy-2Oz" secondAttribute="height" multiplier="0.118441" id="fx0-F1-VjP"/>
                             <constraint firstItem="NXN-Sm-4mO" firstAttribute="centerX" secondItem="Jsp-fy-2Oz" secondAttribute="centerX" id="l4l-Ob-icD"/>
                             <constraint firstItem="i9n-kL-uhq" firstAttribute="centerX" secondItem="Jsp-fy-2Oz" secondAttribute="centerX" id="tQc-Ac-rqm"/>
                             <constraint firstItem="JC7-Xb-oeq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="64Z-D0-fEX" secondAttribute="trailing" constant="8" symbolic="YES" id="xds-C1-C5O"/>
@@ -328,6 +338,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Todo" id="LCZ-DJ-rqR"/>
                     <connections>
+                        <outlet property="editNoteTextView" destination="RDO-30-7kq" id="JmH-l0-cjd"/>
                         <outlet property="nextButton" destination="z5d-gp-9DC" id="VJJ-dz-bH8"/>
                         <outlet property="noteTextView" destination="i9n-kL-uhq" id="Szr-na-D4V"/>
                         <outlet property="prevButton" destination="64Z-D0-fEX" id="za9-EQ-pLr"/>
@@ -335,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FDB-Vm-U0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136.8" y="668.7192118226601"/>
+            <point key="canvasLocation" x="1136.8" y="667.91604197901052"/>
         </scene>
         <!--TodoCore-->
         <scene sceneID="c3C-Rr-HyP">
@@ -348,7 +359,6 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Llu-64-RwS">
                                 <rect key="frame" x="45.5" y="247" width="284" height="173"/>
                                 <color key="backgroundColor" systemColor="systemFillColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -381,11 +391,19 @@
                                     <action selector="remove:" destination="rFI-HI-qIw" eventType="touchUpInside" id="lpC-29-uwB"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dvi-QI-1mV">
+                                <rect key="frame" x="54" y="145" width="267" height="79"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zkv-zV-H68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eEO-Dd-SaH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2W0-GA-r0b" secondAttribute="trailing" constant="8" symbolic="YES" id="37Y-xe-GXn"/>
+                            <constraint firstItem="Dvi-QI-1mV" firstAttribute="height" secondItem="KCE-5s-ccJ" secondAttribute="height" multiplier="0.118441" id="5iD-2Y-i86"/>
                             <constraint firstItem="Llu-64-RwS" firstAttribute="centerX" secondItem="KCE-5s-ccJ" secondAttribute="centerX" id="8ow-FO-BIa"/>
                             <constraint firstItem="2W0-GA-r0b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nC1-xp-ygJ" secondAttribute="trailing" constant="8" symbolic="YES" id="Eyg-8F-p7v"/>
                             <constraint firstItem="O3I-2o-uLZ" firstAttribute="centerX" secondItem="KCE-5s-ccJ" secondAttribute="centerX" id="HUM-AF-Hnj"/>
@@ -393,8 +411,11 @@
                             <constraint firstItem="nC1-xp-ygJ" firstAttribute="top" secondItem="Llu-64-RwS" secondAttribute="bottom" constant="20" id="IRe-O5-JN4"/>
                             <constraint firstItem="Llu-64-RwS" firstAttribute="centerY" secondItem="KCE-5s-ccJ" secondAttribute="centerY" id="M54-pj-fKI"/>
                             <constraint firstItem="O3I-2o-uLZ" firstAttribute="top" secondItem="2W0-GA-r0b" secondAttribute="bottom" constant="15" id="McV-5o-MHQ"/>
+                            <constraint firstItem="Dvi-QI-1mV" firstAttribute="centerX" secondItem="KCE-5s-ccJ" secondAttribute="centerX" id="S52-vf-D5W"/>
                             <constraint firstItem="nC1-xp-ygJ" firstAttribute="leading" secondItem="zkv-zV-H68" secondAttribute="leading" constant="99.666666666666671" id="Vyk-lR-Szq"/>
                             <constraint firstItem="2W0-GA-r0b" firstAttribute="top" secondItem="Llu-64-RwS" secondAttribute="bottom" constant="20" id="dm4-mJ-c1L"/>
+                            <constraint firstItem="Llu-64-RwS" firstAttribute="top" secondItem="Dvi-QI-1mV" secondAttribute="bottom" constant="23" id="f0z-2z-FUK"/>
+                            <constraint firstItem="Dvi-QI-1mV" firstAttribute="width" secondItem="KCE-5s-ccJ" secondAttribute="width" multiplier="0.712" id="fMS-yC-id0"/>
                             <constraint firstItem="Llu-64-RwS" firstAttribute="width" secondItem="KCE-5s-ccJ" secondAttribute="width" multiplier="0.757333" id="lV1-a0-2zw"/>
                             <constraint firstItem="2W0-GA-r0b" firstAttribute="centerX" secondItem="KCE-5s-ccJ" secondAttribute="centerX" id="nMb-Bz-CkH"/>
                             <constraint firstItem="Llu-64-RwS" firstAttribute="height" secondItem="KCE-5s-ccJ" secondAttribute="height" multiplier="0.259852" id="qI4-bH-0df"/>
@@ -403,6 +424,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="TodoCore" id="aP5-W5-MuL"/>
                     <connections>
+                        <outlet property="editNoteTextView" destination="Dvi-QI-1mV" id="gZc-AB-shX"/>
                         <outlet property="nextButton" destination="eEO-Dd-SaH" id="s7p-aC-t0x"/>
                         <outlet property="noteTextView" destination="Llu-64-RwS" id="CVg-p0-ZTE"/>
                         <outlet property="prevButton" destination="nC1-xp-ygJ" id="mki-Cf-fTh"/>
@@ -416,6 +438,9 @@
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

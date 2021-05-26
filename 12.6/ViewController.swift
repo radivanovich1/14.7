@@ -14,15 +14,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextField.text = User.user.Name
-        suremaneTextField.text = User.user.Surename
+        if User.shared.name != "empty" {
+            nameTextField.text = User.shared.name
+            suremaneTextField.text = User.shared.surename
+        }
+        
         self.nameTextField.delegate = self
         self.suremaneTextField.delegate = self
+            
         }
     
     @IBAction func save(_ sender: Any) {
-        User.user.Name = nameTextField.text ?? ""
-        User.user.Surename = suremaneTextField.text ?? ""
+        User.shared.name = nameTextField.text ?? ""
+        User.shared.surename = suremaneTextField.text ?? ""
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

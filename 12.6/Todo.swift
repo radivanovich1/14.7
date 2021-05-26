@@ -16,7 +16,7 @@ class Note: Object{
 
 class Todo{
     
-    static var todo = Todo()
+    static var shared = Todo()
     private let realm = try! Realm()
     
     func write(text: String)  {

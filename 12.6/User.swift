@@ -9,16 +9,16 @@ import Foundation
 
 class User{
     
-    static let user = User()
+    static let shared = User()
     private let kUserName = "User.kUserName"
     private let kUserSurename = "User.kUserSurename"
 
-    var Name: String{
+    var name: String{
         get{ return UserDefaults.standard.string(forKey: kUserName) ?? "empty"}
         set{ UserDefaults.standard.setValue(newValue, forKey: kUserName) }
     
     }
-    var Surename: String{
+    var surename: String{
         get{ return UserDefaults.standard.string(forKey: kUserSurename) ?? "empty"}
         set{ UserDefaults.standard.setValue(newValue, forKey: kUserSurename) }
     

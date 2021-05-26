@@ -12,26 +12,32 @@ class TodoViewController: UIViewController {
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var editNoteTextView: UITextView!
     var index = 0
     var curretNote: Note?
-    let todo = Todo()
     override func viewDidLoad() {
         super.viewDidLoad()
-        curretNote = todo.read().last
+        curretNote = Todo.shared.read().last
         noteTextView.text = curretNote?.note
-        index = todo.read().count - 1
+        index = Todo.shared.read().count - 1
         nextButton.isEnabled = false
-            
     }
     @IBAction func save(_ sender: Any) {
-        todo.write(text:noteTextView.text)
-        index = todo.read().count - 1
-        prevButton.isEnabled = true
+        if editNoteTextView.text != ""{
+        Todo.shared.write(text: editNoteTextView.text)
+        index = Todo.shared.read().count - 1
+        curretNote = Todo.shared.read().last
+        noteTextView.text = curretNote?.note
+        nextButton.isEnabled = false
+            if index > 0{
+                prevButton.isEnabled = true
+            }
+        }
     }
     
     @IBAction func prev(_ sender: Any) {
         
-        let arr:[Note] = todo.read()
+        let arr:[Note] = Todo.shared.read()
         
         if index > 0 {
             index -= 1
@@ -46,7 +52,7 @@ class TodoViewController: UIViewController {
     }
     @IBAction func next(_ sender: Any) {
         
-        let arr:[Note] = todo.read()
+        let arr:[Note] = Todo.shared.read()
         
         if index < arr.count - 1  {
             index += 1
@@ -55,17 +61,17 @@ class TodoViewController: UIViewController {
             prevButton.isEnabled = true
 
         }
-        if index == todo.read().count - 1{ nextButton.isEnabled = false
+        if index == Todo.shared.read().count - 1{ nextButton.isEnabled = false
             
         }
     }
     
     @IBAction func remove(_ sender: Any) {
         if let curret = curretNote{
-            todo.remove(note: curret)
+            Todo.shared.remove(note: curret)
             if index > 0 {
                 index -= 1
-                let arr:[Note] = todo.read()
+                let arr:[Note] = Todo.shared.read()
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.note
             }
