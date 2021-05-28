@@ -26,7 +26,10 @@ class TodoCoreViewController: UIViewController {
         noteTextView.text = curretNote?.noteCore
         index = Todo.shared.readCore(context: context!).count - 1
         nextButton.isEnabled = false
-       
+        if index < 1
+        {
+            prevButton.isEnabled = false
+        }
 
 
     }
@@ -80,11 +83,19 @@ class TodoCoreViewController: UIViewController {
                 let arr:[NoteCore] = Todo.shared.readCore(context: context!)
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.noteCore
+                if index == 0 {
+                    prevButton.isEnabled = false
+                }
             }
             else if index == 0 && Todo.shared.readCore(context: context!).count > 0 {
                 let arr:[NoteCore] = Todo.shared.readCore(context: context!)
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.noteCore
+                if arr.count == 1
+                {
+                    prevButton.isEnabled = false
+                    nextButton.isEnabled = false
+                }
             }
             else{
                 noteTextView.text = ""

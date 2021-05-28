@@ -65,6 +65,7 @@ class Todo{
     
     func removeCore(note: NoteCore, context: NSManagedObjectContext ){
         context.delete(note)
+        try! context.save()
     }
     
 }

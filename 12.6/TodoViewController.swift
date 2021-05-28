@@ -21,6 +21,10 @@ class TodoViewController: UIViewController {
         noteTextView.text = curretNote?.note
         index = Todo.shared.read().count - 1
         nextButton.isEnabled = false
+        if index < 1
+        {
+            prevButton.isEnabled = false
+        }
     }
     @IBAction func save(_ sender: Any) {
         if editNoteTextView.text != ""{
@@ -61,7 +65,8 @@ class TodoViewController: UIViewController {
             prevButton.isEnabled = true
 
         }
-        if index == Todo.shared.read().count - 1{ nextButton.isEnabled = false
+        if index == Todo.shared.read().count - 1{
+            nextButton.isEnabled = false
             
         }
     }
@@ -74,11 +79,19 @@ class TodoViewController: UIViewController {
                 let arr:[Note] = Todo.shared.read()
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.note
+                if index == 0 {
+                    prevButton.isEnabled = false
+                }
             }
             else if index == 0 && Todo.shared.read().count > 0 {
                 let arr:[Note] = Todo.shared.read()
                 curretNote = arr[index]
                 noteTextView.text = curretNote?.note
+                if arr.count == 1
+                {
+                    prevButton.isEnabled = false
+                    nextButton.isEnabled = false
+                }
             }
             else{
                 noteTextView.text = ""
